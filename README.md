@@ -1,5 +1,7 @@
 # Localização de Agências Bancárias no Brasil
 
+![Agências Bancárias no Brasil](img/brasil.png)
+
 O objetivo desse repositório é criar uma base de dados colaborativa com a distribuição espacial das agências bancárias no Brasil. Embora a digitalização bancária seja crescente no país, o acesso a agências físicas ainda é bastante importante, principalmente para a população mais pobre. Em particular, postos de atendimento da [Caixa Econômica Federal](https://www.caixa.gov.br/sustentabilidade/investimentos-socioambientais/programas-sociais/Paginas/default.aspx), onde são sacados benefícios trabalhistas (Seguro Desemprego, FGTS) e de programas sociais como o Bolsa Família, Minha Casa Minha Vida e Auxílio Emergencial. Ainda, o acesso mesmo a agências de bancos privados é importante, já que a bancarização facilita e está associada à formalização no mercado de trabalho, acesso a crédito, entre outros.
 
 As informações sobre as agências utilizadas são de responsabilidade das instituições financeiras, que declaram mensalmente ao Banco Central as agências em funcionamento. Os dados brutos são obtidos no site do BACEN através desse [link](https://www.bcb.gov.br/acessoinformacao/legado?url=https:%2F%2Fwww.bcb.gov.br%2Ffis%2Finfo%2Fagencias.asp), que é atualizado todo mês.
