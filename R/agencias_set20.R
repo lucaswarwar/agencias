@@ -167,6 +167,11 @@ ag_set20$lat <- data.table::fifelse(ag_set20$lat > 30, -1*ag_set20$lat,ag_set20$
 # Salva a base geolocalizada em formato .csv
 data.table::fwrite(ag_set20, here::here('data','csv','agencias_set20.csv'))
 
+# As coordenadas com erro foram corrigidas manualmente
+# Carrega mesma base de dados, corrigida
+
+ag_set20 <- data.table::fread(here::here('data', 'csv', 'agencias_set20 - agencias_set20.csv'))
+
 # Cria arquivo shapefile de pontos
 
 ag_set20_sf <- sf::st_as_sf(ag_set20 %>% na.omit(),
@@ -174,4 +179,4 @@ ag_set20_sf <- sf::st_as_sf(ag_set20 %>% na.omit(),
                             crs = 4674)
 
 # Salva arquivo
-sf::st_write(ag_set20_sf, here::here('data','shapes','agencias_set20.shp'))
+sf::st_write(ag_set20_sf, here::here('data','shapes','agencias_set20 - agencias_set20.shp'))
