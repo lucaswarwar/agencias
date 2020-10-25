@@ -10,7 +10,7 @@ source('setup.R')
 
 # Set 2020 --------
 
-path <- here::here('data-raw/','2020/','202009AGENCIAS.xlsx') # caminho do arquivo bruto no repositório
+path <- here::here('data-raw','2020','202009AGENCIAS.xlsx') # caminho do arquivo bruto no repositório
 
 # Carrega a base de agências
 ag_set20 <- readxl::read_xlsx(path, skip = 8) # para outros meses/anos, conferir nº de linhas pra skip no .xlsx
