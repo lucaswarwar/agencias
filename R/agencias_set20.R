@@ -1,7 +1,7 @@
 # Base de Dados: Lista e Localização de todas as Agências Bancárias de intituições financieras sob supervisão do BACEN
 # O arquivo é atualizado mensalmente e pode ser baixado no link:
 # https://www.bcb.gov.br/acessoinformacao/legado?url=https:%2F%2Fwww.bcb.gov.br%2Ffis%2Finfo%2Fagencias.asp
-
+# Autor: Lucas Warwar (lucas.warwar@gmail.com, Twitter: @LucasWarwar)
 
 ### Limpeza dos dados brutos e geolocalização das Agências Bancárias ###
 
@@ -74,22 +74,22 @@ ag_set20 <- ag_set20 %>%
                        'brasilia (recanto das emas) DF','brasilia (riacho fundo) DF','brasilia (samambaia) DF',
                         'brasilia (santa maria) DF','brasilia (sao sebastiao) DF','brasilia (sobradinho) DF',
                        'brasilia (sudoeste/octogonal) DF','brasilia (taguatinga) DF') ~ 'Brasília',
-      municipio == 'campo grande RN' ~ 'Augusto Severo',
-      municipio == 'dona euzebia MG' ~ 'Dona Eusébia',
-      municipio == 'embu das artes SP' ~ 'Embu',
+      municipio == 'campo grande RN' ~ 'Augusto Severo', # mudou de nome
+      municipio == 'dona euzebia MG' ~ 'Dona Eusébia', # mudou de nome
+      municipio == 'embu das artes SP' ~ 'Embu', # emancipou
       municipio == 'entre ijuis RS' ~ 'Entre-Ijuís',
       municipio == 'florinea SP' ~ 'Florínia',
       municipio == 'lagoa do itaenga PE' ~ 'Lagoa de Itaenga',
       municipio == 'mogi-guacu SP' ~ 'Mogi Guaçu',
       municipio == 'mogi-mirim SP' ~ 'Moji Mirim',
-      municipio == 'mojui dos campos PA' ~ 'Santarém',
+      municipio == 'mojui dos campos PA' ~ 'Santarém', # emancipou
       municipio == 'pindare mirim MA' ~ 'Pindaré-Mirim',
       municipio == 'poxoreu MT' ~ 'Poxoréo',
       municipio == 'santa cruz do monte castelo PR' ~ 'Santa Cruz de Monte Castelo',
       municipio == 'santana do livramento RS' ~ "Sant'Ana do Livramento",
       municipio == "sao lourenco d'oeste SC" ~ 'São Lourenço do Oeste',
       municipio == "sao miguel d'oeste SC" ~ 'São Miguel do Oeste',
-      municipio == 'sao tome das letras MG' ~ 'São Thomé das Letras',
+      municipio == 'sao tome das letras MG' ~ 'São Thomé das Letras', # mudou de nome
       municipio == 'trajano de morais RJ' ~ 'Trajano de Moraes',
       TRUE ~ name_muni)
     )
@@ -170,7 +170,7 @@ data.table::fwrite(ag_set20, here::here('data','csv','agencias_set20.csv'))
 # As coordenadas com erro foram corrigidas manualmente
 # Carrega mesma base de dados, corrigida
 
-ag_set20 <- data.table::fread(here::here('data', 'csv', 'agencias_set20 - agencias_set20.csv'))
+ag_set20 <- data.table::fread(here::here('data', 'csv', 'agencias_set20_ok.csv'))
 
 # Cria arquivo shapefile de pontos
 
@@ -179,4 +179,4 @@ ag_set20_sf <- sf::st_as_sf(ag_set20 %>% na.omit(),
                             crs = 4674)
 
 # Salva arquivo
-sf::st_write(ag_set20_sf, here::here('data','shapes','agencias_set20 - agencias_set20.shp'))
+sf::st_write(ag_set20_sf, here::here('data','shapes','agencias_set20_ok.shp'))
